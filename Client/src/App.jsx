@@ -10,7 +10,6 @@ import Utilities from "./pages/Utilities";
 const App = () => {
   return (
     <Router>
-      <div>
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route
@@ -29,8 +28,9 @@ const App = () => {
             <Route path="/submit-question" element={<QuestionForm />} />
           </Route>
         </Routes>
-      </div>
-    </Router>
+      </Router>
+
+    
   );
 };
 
