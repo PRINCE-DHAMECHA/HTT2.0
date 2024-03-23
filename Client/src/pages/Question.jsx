@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const QuestionPage = () => {
-  const { questionId } = useParams();
+  const { questionId, questionTitle, questionBody } = useParams();
   const [answers, setAnswers] = useState([]);
   const [newAnswer, setNewAnswer] = useState("");
 
@@ -29,6 +29,17 @@ const QuestionPage = () => {
         { body: newAnswer, user: "user" }
       );
       setNewAnswer("");
+      
+    const fetchAnswers = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:5000/discussion/${questionId}/answers`
+        );
+        setAnswers(response.data);
+      } catch (error) {
+        console.error("Error fetching answers:", error);
+      }
+    };
       // Refresh answers after submitting the new answer
       fetchAnswers();
     } catch (error) {
@@ -46,6 +57,8 @@ const QuestionPage = () => {
           </li>
         ))}
       </ul>
+      <br></br>
+      <br></br>
       <form onSubmit={handleSubmitAnswer} className="mt-4">
         <h3 className="text-xl font-bold mb-2">Submit Your Answer</h3>
         <textarea

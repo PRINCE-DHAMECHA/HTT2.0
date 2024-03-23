@@ -8,6 +8,7 @@ import "express-async-errors";
 import connectDB from "./db/connect.js";
 
 import discussionRouter from "./routes/discussionRouter.js";
+import authRouter from "./routes/authRoutes.js";
 
 import notFoundMiddleware from "./middlewares/not-found.js";
 import errorHandlerMiddleware from "./middlewares/error-handler.js";
@@ -15,6 +16,7 @@ import cors from "cors";
 
 app.use(cors());
 app.use(express.json());
+app.use("/auth", authRouter);
 app.use("/discussion", discussionRouter);
 
 app.use(notFoundMiddleware);
