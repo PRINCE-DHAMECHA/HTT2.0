@@ -24,16 +24,6 @@ const QuestionPage = () => {
   const handleSubmitAnswer = async (e) => {
     e.preventDefault();
     try {
-      const fetchAnswers = async () => {
-        try {
-          const response = await axios.get(
-            `http://localhost:5000/discussion/${questionId}/answers`
-          );
-          setAnswers(response.data);
-        } catch (error) {
-          console.error("Error fetching answers:", error);
-        }
-      };
       await axios.post(
         `http://localhost:5000/discussion/${questionId}/answers`,
         { body: newAnswer, user: "user" }
@@ -47,22 +37,31 @@ const QuestionPage = () => {
   };
 
   return (
-    <div>
-      <h2>Replies to Question</h2>
-      <ul>
+    <div className="max-w-xl mx-auto mt-8">
+      <h2 className="text-2xl font-bold mb-4">Replies to Question</h2>
+      <ul className="space-y-2">
         {answers.map((answer) => (
-          <li key={answer._id}>{answer.body}</li>
+          <li key={answer._id} className="border p-2 rounded-md bg-gray-100">
+            {answer.body}
+          </li>
         ))}
       </ul>
-      <form onSubmit={handleSubmitAnswer}>
-        <h3>Submit Your Answer</h3>
+      <form onSubmit={handleSubmitAnswer} className="mt-4">
+        <h3 className="text-xl font-bold mb-2">Submit Your Answer</h3>
         <textarea
           value={newAnswer}
           onChange={(e) => setNewAnswer(e.target.value)}
           placeholder="Your answer..."
+          className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200"
           required
+          rows="4"
         />
-        <button type="submit">Submit Answer</button>
+        <button
+          type="submit"
+          className="mt-2 bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
+        >
+          Submit Answer
+        </button>
       </form>
     </div>
   );
