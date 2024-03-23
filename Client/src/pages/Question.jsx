@@ -85,7 +85,7 @@ const QuestionPage = () => {
         />
         <button
           type="submit"
-          className="mt-2 bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
+          className="mt-2 bg-black text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
         >
           Submit Answer
         </button>

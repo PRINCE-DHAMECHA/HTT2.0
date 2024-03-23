@@ -1,49 +1,33 @@
-import { CarouselDemo } from "./CarouselImg"
-import { Button } from "../ui/button"
+import { Button } from "../ui/button";
+import { CarouselDemo } from "./CarouselImg";
+import CourseCard from "./CourseCard";
 
 const Hero = () => {
   return (
     <div>
-      <section className="bg-white py-20">
-        <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
-          <CarouselDemo />
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center relative z-10">
+        <CarouselDemo />
           <div className="max-w-md text-center lg:text-left lg:ml-12">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl font-bold">
               Learn Sewing from Experts
             </h2>
             <p className="text-lg mb-8">
               Join our platform and explore a wide range of sewing courses
               tailored to your needs.
             </p>
-            <Button className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition-colors duration-300">
+            <Button className="bg-[#9E2B59] text-white px-6 py-3 rounded-md hover:bg-black transition-colors duration-300">
               Explore Courses
             </Button>
           </div>
         </div>
-      </section>
-      <section className="bg-gray-100 py-20">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold mb-12">Featured Courses</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-xl font-bold mb-4">Course Title</h3>
-              <p className="text-gray-600 mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus quis arcu in enim ullamcorper fermentum nec sed
-                arcu.
-              </p>
-              <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300">
-                Learn More
-              </button>
-            </div>
-            {/* Add more course cards here */}
+        <section>
+          <h1 className="text-3xl font-bold text-black m-4">Best Offering For You</h1>
+          <div className="flex">
+            <CourseCard /> <CourseCard />
           </div>
-        </div>
-      </section>
-
-      {/* Add more sections as needed */}
+        </section> 
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

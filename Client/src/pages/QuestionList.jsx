@@ -27,7 +27,7 @@ const QuestionListPage = () => {
       <h1 className="text-3xl">Discussion Forum</h1>
       <Link
         to="/submit-question"
-        className="mb-4 block bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
+        className="mb-4 block bg-black text-white py-2 px-4 rounded-md hover:bg-[#9E2B59] focus:outline-none focus:bg-[#9E2B59]"
       >
         Submit a Question
       </Link>
