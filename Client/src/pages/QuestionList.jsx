@@ -22,11 +22,17 @@ const QuestionListPage = () => {
   return (
     <div>
       <h2>All Questions</h2>
+      <br></br>
       <ul>
         {questions.map((question) => (
           <li key={question._id}>
             {question.title}
-            <Link to={`/questions/${question._id}`}>Replies</Link>
+            <br></br>
+            {question.body}
+            <br></br>
+            <Link to={`/questions/${question._id}/${question.title}/${question.body}`}>Replies</Link>
+            <br></br>
+            <br></br>
           </li>
         ))}
       </ul>

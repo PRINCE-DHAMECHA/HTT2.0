@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const QuestionPage = () => {
-  const { questionId } = useParams();
+  const { questionId, questionTitle, questionBody } = useParams();
   const [answers, setAnswers] = useState([]);
   const [newAnswer, setNewAnswer] = useState("");
 
@@ -49,11 +49,19 @@ const QuestionPage = () => {
   return (
     <div>
       <h2>Replies to Question</h2>
+      <br></br>
+      <br></br>
+      <h3>{questionTitle}</h3>
+      <p>{questionBody}</p>
+      <br></br>
+      <br></br>
       <ul>
         {answers.map((answer) => (
           <li key={answer._id}>{answer.body}</li>
         ))}
       </ul>
+      <br></br>
+      <br></br>
       <form onSubmit={handleSubmitAnswer}>
         <h3>Submit Your Answer</h3>
         <textarea
