@@ -13,7 +13,6 @@ const QuestionBody = ({title,body,id}) => {
             >
              <MdOutlineReply size="20px"  />
             </Link>
-          
         </div>
         <p className="">{body}</p>
     </div>
