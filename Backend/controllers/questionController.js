@@ -52,9 +52,22 @@ const getAllQuestions = async (req, res) => {
   }
 };
 
+const getOneQuestion = async (req, res) => {
+  try {
+    const question = await Question.findById(req.params.questionId);
+    if (!question) {
+      return res.status(404).json({ message: "Question not found" });
+    }
+    res.json(question);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 export  {
   addQuestion,
   deleteQuestion,
   updateQuestion,
-  getAllQuestions
+  getAllQuestions,
+  getOneQuestion
 }
