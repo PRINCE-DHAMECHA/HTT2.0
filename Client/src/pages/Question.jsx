@@ -29,6 +29,17 @@ const QuestionPage = () => {
         { body: newAnswer, user: "user" }
       );
       setNewAnswer("");
+      
+    const fetchAnswers = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:5000/discussion/${questionId}/answers`
+        );
+        setAnswers(response.data);
+      } catch (error) {
+        console.error("Error fetching answers:", error);
+      }
+    };
       // Refresh answers after submitting the new answer
       fetchAnswers();
     } catch (error) {

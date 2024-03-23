@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RingLoader from "react-spinners/RingLoader";
+import logo from "../assets/RajaRani_logo.png"
 
 const initialState = {
   name: "",
@@ -31,7 +32,7 @@ export default function Register() {
       setLoading(false);
     }, 1000);
     if (user) {
-      navigate("/stockHome");
+      navigate("/");
     }
     return () => {
       clearTimeout(t);
@@ -81,6 +82,11 @@ export default function Register() {
       ) : (
         <div className="flex justify-center flex-wrap text-center">
           <div className="max-w-sm w-full space-y-6">
+          <img
+              src={logo}
+              alt="Logo"
+              className="m-auto mt-3 w-4/5 md:w-6/12 h-auto"
+            ></img>
             <div>
               <h2
                 style={{

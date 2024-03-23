@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const QuestionForm = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [user, setUser] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -14,10 +16,10 @@ const QuestionForm = () => {
         body,
         user,
       });
-      alert("Question submitted successfully");
       setTitle("");
       setUser("");
       setBody("");
+      navigate("/");
     } catch (error) {
       console.error("Error submitting question:", error);
       alert("An error occurred while submitting the question");
