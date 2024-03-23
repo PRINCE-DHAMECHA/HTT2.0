@@ -41,7 +41,7 @@ const QuestionListPage = () => {
             </h3>
             <p className="text-gray-600">{question.body}</p>
             <Link
-              to={`/questions/${question._id}/${question.title}/${question.body}`}
+              to={`/questions/${question._id}/`}
               className="mt-2 block text-sm text-gray-500 hover:text-gray-700"
             >
               View Replies

@@ -23,7 +23,7 @@ const App = () => {
           >
             <Route path="/" element={<QuestionListPage />} />
             <Route
-              path="/questions/:questionId/:questionTitle/:questionBody"
+              path="/questions/:questionId"
               element={<QuestionPage />}
             />
             <Route path="/submit-question" element={<QuestionForm />} />

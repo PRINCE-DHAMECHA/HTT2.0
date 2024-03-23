@@ -5,7 +5,8 @@ import {
   addQuestion,
   deleteQuestion,
   updateQuestion,
-  getAllQuestions
+  getAllQuestions,
+  getOneQuestion
 } from "../controllers/questionController.js";
 
 import {  answerQuestion, getRepliesOfQuestion } from "../controllers/answerController.js";
@@ -27,5 +28,8 @@ router.get('/:questionId/answers', getRepliesOfQuestion);
 
 // Answer a question
 router.post('/:questionId/answers', answerQuestion);
+
+// Get one question
+router.get("/getone/:questionId/",getOneQuestion)
 
 export default router;
