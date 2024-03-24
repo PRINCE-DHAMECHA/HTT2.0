@@ -34,7 +34,7 @@ const QuestionListPage = () => {
     </div>
     <div className="overflow-auto h-[600px]">
       {questions.map((question) => ( 
-        <QuestionBody key={question.id} title={question.title} body={question.body} id={question._id} /> 
+        <QuestionBody key={question.id} title={question.title} body={question.body} id={question._id} user={question.user} /> 
       ))}
     </div>
     </div>

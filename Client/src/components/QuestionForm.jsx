@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import { redirect } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../context/appContext";
 
 const QuestionForm = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [user, setUser] = useState("");
+  const { user } = useAppContext();
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,10 +15,9 @@ const QuestionForm = () => {
       await axios.post("http://localhost:5000/discussion", {
         title,
         body,
-        user,
+        user: user.name,
       });
       setTitle("");
-      setUser("");
       setBody("");
       navigate("/");
     } catch (error) {
@@ -27,25 +27,9 @@ const QuestionForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 bg-white p-6 rounded-md shadow-md">
+    <div className="max-w-md mx-auto mt-36 bg-white p-6 rounded-md shadow-md">
       <h2 className="text-xl font-bold mb-4 text-center">Submit a Question</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label
-            htmlFor="user"
-            className="block text-sm font-medium text-gray-700"
-          >
-            User:
-          </label>
-          <input
-            type="text"
-            id="user"
-            value={user}
-            onChange={(e) => setUser(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200"
-            required
-          />
-        </div>
         <div>
           <label
             htmlFor="title"

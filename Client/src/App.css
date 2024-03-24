@@ -18,6 +18,27 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.myScroll {
+  overflow: scroll;
+}
+
+.myScroll::-webkit-scrollbar {
+  width: 1px;
+}
+
+.myScroll::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.myScroll::-webkit-scrollbar-track {
+  box-shadow: transparent;
+}
+
+.myScroll::-webkit-scrollbar-thumb {
+  background-color: rgb(95, 84, 255);
+}
+
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

@@ -80,7 +80,7 @@ export default function Register() {
           </div>
         </div>
       ) : (
-        <div className="flex justify-center flex-wrap text-center">
+        <div className="flex justify-center flex-wrap text-center mt-36">
           <div className="max-w-sm w-full space-y-6">
           <img
               src={logo}
